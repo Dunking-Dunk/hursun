@@ -15,7 +15,7 @@ export default class Particle {
 
     this.camera = camera
 
-    this.size = 512
+    this.size = DetectionManager.isPhone() ? 256 : 512
     
     this.device = {
       width: window.innerWidth,
@@ -185,9 +185,9 @@ export default class Particle {
 
     if (rect3.top < window.innerHeight) {
       if (DetectionManager.isPhone()) {
-        this.points?.position.set(0,-2,-8)
+        this.points?.position.set(0,-1,-4)
       } else {
-        this.points?.position.set(4,-2,-8)
+        this.points?.position.set(3,-1,-4)
       }
       this.points?.rotation.set(20,0,0)
 

@@ -5,6 +5,7 @@ import Prefix from 'prefix'
 import TextReveal from "../animations/textReveal.js"
 import TextOpacity from "../animations/textOpacity.js"
 import TextRotation from "../animations/textRotation.js"
+import DetectionManager from "./Detection.js"
 
 export default class Page {
     constructor({ element, elements, id }) {
@@ -193,7 +194,7 @@ export default class Page {
             this.scroll.current = 0
         }
 
-        this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, 0.01)
+        this.scroll.current = GSAP.utils.interpolate(this.scroll.current, this.scroll.target, DetectionManager.isPhone() ? 0.1: 0.01)
         
         if (this.scroll.current > this.offsetTop && this.scroll.current < this.offsetTop + this.sticky.width - window.innerWidth) {
             this.elements.stickyContainer.style[

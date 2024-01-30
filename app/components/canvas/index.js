@@ -15,7 +15,7 @@ export default class Canvas {
 
         this.createCamera()
         this.createLight()
-        this.createStats()
+        // this.createStats()
         this.createRenderer() 
         this.createScene()
     }
@@ -44,7 +44,7 @@ document.body.appendChild(this.stats.dom)
         })
 
         this.renderer.setSize(this.size.width, this.size.height)
-        this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
+        this.renderer.setPixelRatio(Math.min(1, window.devicePixelRatio))
         this.renderer.outputColorSpace = T.SRGBColorSpace
         this.renderer.toneMapping = T.ACESFilmicToneMapping
     }
@@ -97,7 +97,7 @@ document.body.appendChild(this.stats.dom)
          }
 
     update() {
-        this.stats.begin()
+        // this.stats.begin()
         
         this.renderer.setScissorTest( false );
         this.renderer.clear();
@@ -106,7 +106,7 @@ document.body.appendChild(this.stats.dom)
         if (this.page) {
             this.page.update()
         }
-        this.stats.end()
+        // this.stats.end()
         }
 
 

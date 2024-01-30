@@ -58,6 +58,7 @@ export default class Project {
         this.plane.scale.set(this.size.width/ (this.size.width * 0.5), this.size.height/ (this.size.height * 0.8));
         this.plane.position.set(this.offset.x, this.offset.y, 0)
         this.scene.add(this.plane)
+        this.plane.material.extensions = { derivatives: true }
     }
 
     createLight() {
