@@ -1,0 +1,26 @@
+.header   
+    .header__wrapper
+        .header__head
+            img(src='/image/Logo.png').header__logo
+            p.header__center INDIA - CHENNAI
+            button.header__btn
+                span.header__btn__line
+                span.header__btn__line
+        .header__sidebar
+            ul.header__sidebar__links 
+                li.header__sidebar__link__container
+                    a(href='/').header__sidebar__link Home 
+                li.header__sidebar__link__container
+                    a(href='/projects').header__sidebar__link Projects
+            .header__sidebar__social 
+                a(href='/').header__sidebar__social__link Instagram
+                a(href='https://www.linkedin.com/in/hursun-ss-377659233/').header__sidebar__social__link Linkedin
+                a(href='https://github.com/Dunking-Dunk').header__sidebar__social__link Github
+            p.header__sidebar__header Navigation 
+            p.header__sidebar__social__header Socials
+            .header__sidebar__logo 
+                img.header__sidebar__logo___img(src='/image/Logo__image.png')
+        svg.header__transition(viewBox="0 0 100 100" preserveAspectRatio="none")
+            path.header__path(stroke-width="3px" dur="10s" vector-effect="non-scaling-stroke"  d="M 0 100 L 100 100 100 100 0 100 C 0 0, 0 0, 0 100")
+                animateMotion(dur="10s" repeatCount="indefinite")
+                mpath(xlink:href="#path")

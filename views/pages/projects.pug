@@ -1,0 +1,18 @@
+extends ../base.pug
+
+block variables
+    -var template = 'projects'
+
+mixin project(id,title)
+    a.home__project(href=`/project/${id}` data-animation='textRotation' data-title=title data-src=`/projects/${id}.webp` )
+        .home__project__link
+                h3.home__project__title=title
+
+block content
+    .projects(data-canvas='project')   
+        .projects__wrapper
+            h1.projects__title All Works
+            .projects__works 
+                    +project('carbontrail','Carbon Trail')
+                    +project('aswinp','Aswin Portfolio')
+                    +project('ecommerce','E commerce')

@@ -1,0 +1,88 @@
+extends ../base.pug
+
+block variables 
+    -var template = 'project'
+
+mixin template({ id, title, category, technologies, link, label, gallery, description })
+  article.case(id=id)
+    header.case__header
+      .case__title
+        span.case__title__text=title
+
+      figure.case__media
+        img.case__media__image(
+          src=`/projects/${id}.webp`
+          data-src-webp=`/projects/${id}.webp`
+        )
+
+    .case__information
+      .case__information__detail
+        strong.case__information__detail__title Category
+        p(data-animation='textReveal')=category
+
+      //- p.case__information__detail
+      //-   | #[strong.case__information__detail__title Role]
+      //-   | #{role}
+
+      .case__information__detail
+        strong.case__information__detail__title Technologies
+        p(data-animation='textReveal')=technologies
+
+      if link
+        .case__information__detail
+          strong.case__information__detail__title #{label}
+          a(href=link target="_blank" rel="noreferrer noopener" data-animation='textReveal') View →
+
+      if description
+        .case__information__detail.case__info__para
+          strong.case__information__detail__title Description
+          p(data-animation='textReveal')=description
+
+    .case__gallery
+      each content, index in gallery
+        .case__gallery__media(style=`max-width: ${content.width / 10}rem;`)
+            span.case__gallery__media__placeholder(
+              data-src=`/case/${id}/${content.image}`
+              style=`padding-top: ${content.height / content.width * 100}%;`
+            )
+
+
+block content 
+    .project 
+        .project__wrapper
+            +template({id: 'carbontrail',title: 'Carbon Trail', description: 'There is an admin dashboard for administrators to create, edit, and manage entire shipments. Administrators can also manage supervisors and drivers from the dashboard. They can assign and manage vehicles in real-time with their live location and live data from the telematics control unit (TCU)',category: 'Freelance',technologies: 'WebGL · GLSL · JavaScript', link: '', label: 'Live URL', link: '/',  gallery: [
+                { image: '1.webp', height: '1080', width: '1920' },
+                { image: '2.webp', height: '1080', width: '1920' },
+                { image: '3.webp', height: '1080', width: '1920' },
+                { image: '4.webp', height: '1080', width: '1920' },
+                { image: '5.webp', height: '1080', width: '1920' },
+                { image: '6.webp', height: '1080', width: '1920' },
+                { image: '7.webp', height: '1080', width: '1920' },
+                { image: '8.webp', height: '1080', width: '1920' },
+                { image: '9.webp', height: '1080', width: '1920' },
+                { image: '10.webp', height: '1080', width: '1920' },
+                { image: '11.webp', height: '1080', width: '1920' },
+                { image: '12.webp', height: '1080', width: '1920' },
+                { image: '13.webp', height: '1080', width: '1920' },
+                { image: '14.webp', height: '1080', width: '1920' },
+                { image: '15.webp', height: '1080', width: '1920' },
+                ] })
+            +template({id: 'aswinp',title: 'Aswin P',category: 'Freelance',technologies: 'WebGL · GLSL · JavaScript', link: 'https://aswinp.com/', label: 'Live URL', gallery: [
+                { image: '1.webp', height: '1080', width: '1920' },
+                { image: '2.webp', height: '1080', width: '1920' },
+                { image: '3.webp', height: '1080', width: '1920' },
+                { image: '4.webp', height: '1080', width: '1920' },
+                { image: '5.webp', height: '1080', width: '1920' },
+                ] })
+            +template({id: 'ecommerce',title: 'E Commerce',category: 'Freelance',technologies: 'React - JavaScript - Express', label: 'Live URL',description: "Welcome to Stationary Haven, your go-to destination for office supplies! Powered by React for a sleek frontend and Express for a robust backend, our ecommerce platform offers an intuitive user interface, allowing you to effortlessly explore our extensive range of stationary items. From pens to desk organizers, find everything you need with ease. Our admin features empower you to manage inventory seamlessly while ensuring secure transactions. Enjoy hassle-free shopping, responsive design, and dedicated customer support. Experience convenience and quality at Stationary Haven today!" ,gallery: [
+                    { image: '1.webp', height: '1080', width: '1920' },
+                { image: '2.webp', height: '1080', width: '1920' },
+                { image: '3.webp', height: '1080', width: '1920' },
+                { image: '4.webp', height: '1080', width: '1920' },
+                { image: '5.webp', height: '1080', width: '1920' },
+                { image: '6.webp', height: '1080', width: '1920' },
+                { image: '7.webp', height: '1080', width: '1920' },
+                { image: '8.webp', height: '1080', width: '1920' },
+                { image: '9.webp', height: '1080', width: '1920' },
+                { image: '10.webp', height: '1080', width: '1920' },
+                ] })

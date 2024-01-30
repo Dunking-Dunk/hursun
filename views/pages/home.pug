@@ -1,0 +1,99 @@
+extends ../base.pug
+
+block variables
+    -var template = 'home'
+
+mixin arrow(rotate)
+    .home__arrow(data-animation='hover')
+        .home__arrow__outer(style=`transform: rotate(${rotate}deg)`)
+        .home__arrow__inner(style=`transform: rotate(${rotate}deg)`) 
+        svg.home__arrow__down(width="46" height="65" viewBox="0 0 46 65" fill="none" xmlns="http://www.w3.org/2000/svg" style=`transform: rotate(${rotate}deg)`)
+            path(d="M20.8787 64.1213C22.0503 65.2929 23.9497 65.2929 25.1213 64.1213L44.2132 45.0294C45.3848 43.8579 45.3848 41.9584 44.2132 40.7868C43.0416 39.6152 41.1421 39.6152 39.9706 40.7868L23 57.7574L6.02944 40.7868C4.85787 39.6152 2.95837 39.6152 1.7868 40.7868C0.615224 41.9584 0.615224 43.8579 1.7868 45.0294L20.8787 64.1213ZM20 1.03638e-07L20 62L26 62L26 -1.03638e-07L20 1.03638e-07Z" fill="white")
+
+mixin header(section,number)
+    .home__header
+        h5.home__header__section=section 
+        .home__header__scroll
+            p.home__header__text=`0${number} // 05 - SCROLL`
+            svg.home__header__arrow(width="46" height="65" viewBox="0 0 46 65" fill="none" xmlns="http://www.w3.org/2000/svg")
+                path(d="M20.8787 64.1213C22.0503 65.2929 23.9497 65.2929 25.1213 64.1213L44.2132 45.0294C45.3848 43.8579 45.3848 41.9584 44.2132 40.7868C43.0416 39.6152 41.1421 39.6152 39.9706 40.7868L23 57.7574L6.02944 40.7868C4.85787 39.6152 2.95837 39.6152 1.7868 40.7868C0.615224 41.9584 0.615224 43.8579 1.7868 45.0294L20.8787 64.1213ZM20 1.03638e-07L20 62L26 62L26 -1.03638e-07L20 1.03638e-07Z" fill="white")
+
+mixin circle()
+    .home__circles(data-animation='hover') 
+        .home__circles__circle
+        .home__circles__circle
+        .home__circles__circle
+
+mixin project(id,title)
+    a.home__project(href=`/project/${id}` data-animation='textRotation' data-title=title data-src=`/projects/${id}.webp` )
+        .home__project__link
+                h3.home__project__title=title
+
+mixin education(title, para, date)
+    .home__education__card
+        h3.home__education__title=title 
+        p.home__education__para=para 
+        p.home__education__date=date
+                      
+
+block content
+    .home 
+        .home__wrapper
+            section.home__hero
+                h1.home__hero__title CREATIVE <br/> TECHNOLOGIST
+                .hero__message__container 
+                    .hero__message__circle 
+                    .hero__message(data-animation='textOpacity') AVAILABLE FOR <br/> FREELANCE WORK
+                .hero__arrow
+                    +arrow()
+            section.home__about
+                .home__about__wrapper 
+                    +header('about', 2)
+                    h3.home__about__title Hi, I am <br/> <span class='home__about__title__span'>Hursun</span>
+                    p.home__about__para(data-animation='textReveal') Independent creative developer based in India, I bring a unique blend of technical expertise and artistic vision to every project. I'm not only a full-stack developer, proficient in both web and mobile development, but also a skilled graphic designer and AI enthusiast. This comprehensive skillset allows me to craft beautiful, user-friendly, and innovative solutions that stand out from the crowd.
+                p.home__about__infinity UNFAZED CREATIVE DEVELOPER FULL-STACK DESIGNER GLSL WEB MOBILE DEVELOPER  UNFAZED CREATIVE DEVELOPER 
+                .home__about__circle
+                    +circle()
+            .sticky__parent
+                section.home__featured(data-canvas='project') 
+                            +header('featured', 3)
+                            .home__featured__projects
+                                .home__featured__projects__content 
+                                    h5.home__featured__projects__title(data-animation='textOpacity') View All Projects
+                                    p.home__featured__projects__para(data-animation='textReveal')  Here are my some selected works that showcase my passion for creating products and brand to life
+                                a(href='/projects').home__featured__projects__button 
+                                    +arrow(-125)
+                            .home__featured__works    
+                                +project('carbontrail','Carbon Trail')
+                                +project('aswinp','Aswin Portfolio')
+                                +project('ecommerce','E commerce')
+                section.home__abstract 
+                            .home__abstract__side 
+                                //- h3.home__abstract__side__title Featured Works Projects 
+                            .home__abstract__main
+                                .home__abstract__l1 
+                                .home__abstract__l2
+                                .home__abstract__circles
+                                    .home__abstract__circle.home__abstract__circle-0
+                                    .home__abstract__circle.home__abstract__circle-1
+                                    .home__abstract__circle.home__abstract__circle-2
+                                    .home__abstract__circle.home__abstract__circle-3
+                                    .home__abstract__circle.home__abstract__circle-4
+                            .home__abstract__side 
+                                //-  h3.home__abstract__side__title Skills Level Talent Unfazed
+                .home__skills
+                    .home__skills__container
+                        h1.home__skills__title Skills 
+                        .home__skills__sphere
+                        p.home__skills__para  Hello! I'm a versatile professional skilled in web development, UI/UX design, mobile development, machine learning, and graphics programming. Proficient in React, React Native, and Figma, I specialize in crafting responsive and visually appealing applications. From creating dynamic web interfaces to developing mobile solutions, my expertise extends across diverse domains. Let's collaborate and bring your creative projects to life! 🌐💻🎨🚀
+                    .home__skills__education
+                        h1.home__skills__title Education 
+                        +education('Rajalakshmi Engineering College', 'Bachelor of Technology - BTech','Nov 2022 - 2026')
+            .home__fake 
+            section.home__contact
+                +header('contact', 5)
+                .home__contact__wrapper
+                    h2.home__contact__title INTERESTED IN WORKING TOGTHER ?
+                    p.home__csontact__para THANKS FOR YOUR VISIT! <br/> IF you WANNA KNOW MORE <br/> check out my social page
+                    button.home__contact__button DROP ME A LINE
+            include ../partials/footer

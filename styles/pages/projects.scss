@@ -1,0 +1,27 @@
+.projects {
+    @extend %cover;
+}
+
+.projects__wrapper {
+    @extend %cover;
+    padding: 10rem;
+
+    @include media('<phone') {
+        padding: 10rem 2rem;
+    }
+}
+
+.projects__title {
+    font-size: 6.4rem;
+    font-family: $font-mont;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+}
+
+.project__works {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
