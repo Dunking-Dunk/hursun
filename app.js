@@ -7,7 +7,6 @@ import bodyParser from 'body-parser'
 import methodOverride from 'method-override'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import serverless from "serverless-http";
 import UAParser from 'ua-parser-js'
 
 const app = express()
@@ -52,5 +51,3 @@ app.get('/project/:id', async(req, res) => {
 app.listen(PORT, () => {
     console.log('listening on port 3000')
 })
-
-export const handler = serverless(app);

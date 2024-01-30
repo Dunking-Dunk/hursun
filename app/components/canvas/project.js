@@ -55,7 +55,7 @@ export default class Project {
         });
     
         this.plane = new T.Mesh(this.planeGeometry, this.planeMaterial)
-        this.plane.scale.set(this.size.width/ 800, this.size.height/ 800);
+        this.plane.scale.set(this.size.width/ (this.size.width * 0.5), this.size.height/ (this.size.height * 0.8));
         this.plane.position.set(this.offset.x, this.offset.y, 0)
         this.scene.add(this.plane)
     }

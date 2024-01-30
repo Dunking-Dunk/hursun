@@ -19,13 +19,21 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0 10rem;
+
+    @include media('<phone') {
+        padding: 0 1rem;
+    }
 }
 
 .home__hero__title {
     font-family: $font-mono;
-    font-size: 12.8rem;
+    font-size: 10rem;
     margin-left: 4rem;
     margin-top: 10rem;
+
+    @include media('<phone') {
+        font-size: 8rem;
+    }
 }
 
 .hero__arrow {

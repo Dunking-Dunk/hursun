@@ -9,8 +9,7 @@
     "frontend:build": "webpack --progress --config webpack.config.build.js",
     "backend:build": "node app.js",
     "backend:development": "nodemon app.js",
-    "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\"",
-    "build": "netlify deploy --prod"
+    "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\""
   },
   "author": "",
   "license": "ISC",
