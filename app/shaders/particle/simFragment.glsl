@@ -1,3 +1,9 @@
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+
 varying vec2 vUv;
 uniform vec2 uMouse;
 uniform sampler2D uPositions;

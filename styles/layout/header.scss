@@ -132,9 +132,10 @@
 
 .header__sidebar__link {
     @extend %link--hidden;
-    font-size: 6rem;
+    font-size: 8rem;
     font-weight: 600;
     text-transform: uppercase;
+    font-family: $font-mono;
 }
 
 .header__sidebar__social {

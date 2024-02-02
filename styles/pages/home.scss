@@ -624,6 +624,9 @@
     overflow: hidden;
     font-size: 2rem;
     transition: 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include media('<phone') {
         width: 100%;
@@ -639,7 +642,7 @@
         height: 5rem;
         position: absolute;
         left: 3rem;
-        top: 1.5rem;
+        top: 1.2rem;
         transition: 0.5s ease-in-out;
         z-index: -1;
     }
@@ -659,7 +662,7 @@
     }
 }
 
-.home__csontact__para {
+.home__contact__para {
     font-size: 3rem;
     font-weight: 600;
     text-transform: uppercase;

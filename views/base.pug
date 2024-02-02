@@ -29,8 +29,8 @@ html(class= isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : ""
         link(href="/main.css" rel = 'stylesheet')
         base(href="")
     body 
-        include ./partials/header
         include ./partials/navigation
+        include ./partials/header
         .content#content(data-template=template)
             block content  
     canvas.webgl 
