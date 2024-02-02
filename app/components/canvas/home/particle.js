@@ -189,7 +189,7 @@ export default class Particle {
       } else {
         this.points?.position.set(3,-1,-4)
       }
-      this.points?.rotation.set(20,0,0)
+      this.points?.rotation.set(1.25,0,0)
 
     this.renderer.setViewport(left3, bottom3,width3, height3);
     this.renderer.setScissor( left3, bottom3, width3, height3);

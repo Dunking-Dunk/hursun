@@ -1,0 +1,19 @@
+/*! ../animations/hover.js */
+
+/*! ../animations/textOpacity.js */
+
+/*! ../animations/textReveal.js */
+
+/*! ../animations/textRotation.js */
+
+/*! ./Detection.js */
+
+/*! gsap */
+
+/*! lodash */
+
+/*! prefix */
+
+/*!*****************************!*\
+  !*** ./app/classes/Page.js ***!
+  \*****************************/

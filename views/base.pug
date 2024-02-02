@@ -26,8 +26,8 @@ html(class= isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : ""
 
         //- script(src="/blotter/blotter.min.js")
         //- script(src="/blotter/rollingDistortMaterial.js")
-        base(href=" ")
-        link(rel="preload" href="/main.css" as="style" onload="this.onload = function () {}; this.rel = 'stylesheet';")
+        link(href="/main.css" rel = 'stylesheet')
+        base(href="")
     body 
         include ./partials/header
         include ./partials/navigation

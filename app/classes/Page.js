@@ -176,9 +176,9 @@ export default class Page {
 
     onTouchMove(e) {
         if (this.scroll.start > e.touches[0].clientY) {
-            this.scroll.target += 50
+            this.scroll.target += 25
         } else {
-            this.scroll.target -= 50
+            this.scroll.target -= 25
         }
     }
 
