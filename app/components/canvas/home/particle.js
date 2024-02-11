@@ -39,9 +39,9 @@ export default class Particle {
       minFilter: T.NearestFilter,
       magFilter: T.NearestFilter,
       format: T.RGBAFormat,
-      type: T.FloatType,
+      type:  T.HalfFloatType,
     });
-    
+
     return renderTarget
 }
 
