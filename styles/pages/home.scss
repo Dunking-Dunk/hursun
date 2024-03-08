@@ -494,8 +494,6 @@
     height: 100dvh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: $color-black;
-
 
     @include media('<phone') {
         grid-template-columns: 1fr;
@@ -584,7 +582,7 @@
 
 .home__contact {
     width: 100vw;
-    height: 100dvh;
+    height: 110dvh;
     padding: 0rem 10rem;
 
     @include media('<phone') {
@@ -627,6 +625,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5rem;
 
     @include media('<phone') {
         width: 100%;
@@ -663,8 +662,7 @@
 }
 
 .home__contact__para {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
-    text-transform: uppercase;
     line-height: 3rem;
 }

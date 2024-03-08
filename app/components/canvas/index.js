@@ -1,8 +1,12 @@
 import * as T from 'three'
 import Stats from 'stats.js'
 
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import Home from './home/index.js';
 import Projects from './projects/index.js';
+
+import vertex from '../../shaders/background/vertex.glsl'
+import fragment from '../../shaders/background/lavaFragment.glsl'
 
 export default class Canvas {
     constructor() {
@@ -13,21 +17,43 @@ export default class Canvas {
             height: window.innerHeight,
         }
 
+        this.scene = new T.Scene()
+        this.content = document.querySelector('.content')
+        this.clock = new T.Clock()
+
         this.createCamera()
         this.createLight()
+        this.createBackground()
         // this.createStats()
         this.createRenderer() 
         this.createScene()
     }
 
     createCamera() {
-        this.camera = new T.PerspectiveCamera(70, this.size.width / this.size.height, 1, 100)
-        this.camera.position.set(0, 0, 2)
-        this.scene = new T.Scene()
+        this.camera = new T.PerspectiveCamera(75, this.size.width / this.size.height,
+            0.0001,
+        1000)
+        this.camera.position.set(0, 0, 5)
     }
     
     createLight() {
-        this.light = new T.AmbientLight('white', 10)
+        this.light = new T.AmbientLight('#FBA834', 10)
+        this.scene.add(this.light)
+
+    }
+
+    createBackground() {
+        this.geometry = new T.PlaneGeometry(50, 50)
+        this.material = new T.ShaderMaterial({
+            uniforms: {
+                uTime: {value: 0}
+            },
+            vertexShader: vertex,
+            fragmentShader: fragment
+        })
+        this.planeBackground = new T.Mesh(this.geometry, this.material)
+        this.planeBackground.position.set(0,0,-10)
+        this.scene.add(this.planeBackground)
     }
 
     createStats() {
@@ -40,13 +66,15 @@ document.body.appendChild(this.stats.dom)
         this.renderer = new T.WebGLRenderer({
             canvas: this.canvas,
             antialias: true,
-            preserveDrawingBuffer: false
         })
 
         this.renderer.setSize(this.size.width, this.size.height)
         this.renderer.setPixelRatio(Math.min(1, window.devicePixelRatio))
         this.renderer.outputColorSpace = T.SRGBColorSpace
+       this.renderer.autoClear = false
         this.renderer.toneMapping = T.ACESFilmicToneMapping
+
+        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
     }
 
     createScene() {
@@ -97,15 +125,32 @@ document.body.appendChild(this.stats.dom)
          }
 
     update() {
-        // this.stats.begin()
+        // this.stats.begin()  
+        this.material.uniforms.uTime.value = this.clock.getElapsedTime()
         
-        this.renderer.setScissorTest( false );
+        this.renderer.setScissorTest(false);
         this.renderer.clear();
         this.renderer.setScissorTest(true);
+
 
         if (this.page) {
             this.page.update()
         }
+
+          const rect = this.content.getBoundingClientRect()
+        if (rect.bottom < 0 || rect.top > this.renderer.domElement.clientHeight ||
+            rect.right < 0 || rect.left > this.renderer.domElement.clientWidth) {
+            return;
+        }
+        const width = rect.right - rect.left;
+		const height = rect.bottom - rect.top;
+		const left = rect.left;
+        const bottom = this.renderer.domElement.clientHeight - rect.bottom;
+        
+        this.renderer.setViewport( left, bottom, width, height );
+        this.renderer.setScissor( left, bottom, width, height );
+        this.renderer.render(this.scene, this.camera)
+ 
         // this.stats.end()
         }
 

@@ -33,14 +33,6 @@ export default {
 
         new CopyWebpackPlugin({
             patterns: [
-            {
-                from: './app/service-worker.js',
-                to: ''
-            }
-            ]}),
-
-        new CopyWebpackPlugin({
-            patterns: [
                 {
                     from: './shared',
                     to: '',

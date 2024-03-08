@@ -129,7 +129,7 @@ vec4 simplexNoiseDerivatives(vec4 v){
                     float radius=length(pos.xyz);
                     float circularForce=1.-smoothstep(.5,1.4,abs(pos.x-radius));
                     float angle=atan(pos.y,pos.x)-info.y*.2*mix(.5,1.,circularForce);
-                    float targetRadius=mix(info.x,1.8,.5+.45*sin(angle*10.+time*.2));
+                    float targetRadius=mix(info.x,1.8,.5+.45*sin(angle*12.+time*.2));
                     radius+=(targetRadius-radius)*mix(.2,.5,circularForce);
                     
                     vec3 targetPos=vec3(cos(angle),sin(angle),0.)*radius;

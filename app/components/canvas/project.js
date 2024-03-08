@@ -55,8 +55,8 @@ export default class Project {
         });
     
         this.plane = new T.Mesh(this.planeGeometry, this.planeMaterial)
-        this.plane.scale.set(this.size.width/ (this.size.width * 0.5), this.size.height/ (this.size.height * 0.8));
-        this.plane.position.set(this.offset.x, this.offset.y, 0)
+        this.plane.scale.set(this.size.width * 2.5 / (this.size.width * 0.5), this.size.height * 2.5 / (this.size.height * 0.8));
+        this.plane.position.set(this.offset.x * 1.5, this.offset.y * 1.5, 0)
         this.scene.add(this.plane)
         this.plane.material.extensions = { derivatives: true }
     }
@@ -70,14 +70,13 @@ export default class Project {
         each(this.elements.links, (element) => {
             element.addEventListener('mousemove', (e) => {
                 this.planeMaterial.uniforms.uTexture.value = this.textures[element.getAttribute('data-title')]
+                this.planeMaterial.uniforms.uAlpha.value = 1
             })
-
             element.addEventListener('mouseenter', () => {
                 this.linksHover = true
               })
-              
               element.addEventListener('mouseleave', () => {
-                this.linksHover = false
+                  this.linksHover = false
               })
             
         })
@@ -103,6 +102,9 @@ export default class Project {
     }
     
     update() {
+        if (!this.linksHover) {
+            this.planeMaterial.uniforms.uAlpha.value = 0
+        }
         const rect = this.elements.project?.getBoundingClientRect();
         
 					if ( rect.bottom < 0 || rect.top > this.renderer.domElement.clientHeight ||
@@ -110,7 +112,7 @@ export default class Project {
 						return; 
 
         }
-        this.camera.position.set(0, 0, 2)
+        this.camera.position.set(0, 0, 5)
         this.planeMaterial.uniforms.time.value = this.clock.getElapsedTime()
 
         this.offset.x = lerp(this.offset.x, this.mouse.x, 0.1)

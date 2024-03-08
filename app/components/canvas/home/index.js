@@ -105,7 +105,7 @@ export default class extends Component {
             this.project.onMouseMove(e)
     }
 
-        onResize() {
+    onResize() {
         
     }
 
@@ -119,5 +119,7 @@ export default class extends Component {
 
         if (this.project && this.project.update)
             this.project?.update()
+
+             
     }
 }

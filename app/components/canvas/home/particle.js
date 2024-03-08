@@ -152,7 +152,7 @@ export default class Particle {
     
     this.material.uniforms.uPositions.value = this.fboTexture
       this.points = new T.Points(geometry, this.material);
-
+  
       this.scene.add(this.points);
     }
 

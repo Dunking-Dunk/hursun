@@ -1,8 +1,14 @@
 varying vec2 vUv;
 uniform vec2 uOffset;
 uniform float time;
+uniform float uAlpha;
 
 float M_PI=3.141529;
+
+float cubicOut(float t){
+    float f=t-1.;
+    return f*f*f+1.;
+}
 
 vec3 deformationCurve(vec3 position,vec2 uv,vec2 offset){
     position.x=position.x+(sin(uv.y*M_PI*10.*.3)*offset.x)*2.;
@@ -13,5 +19,5 @@ vec3 deformationCurve(vec3 position,vec2 uv,vec2 offset){
 void main(){
     vUv=uv;
     vec3 newPosition=deformationCurve(position,uv,uOffset);
-    gl_Position=projectionMatrix*modelViewMatrix*vec4(newPosition,1.);
+    gl_Position=projectionMatrix*modelViewMatrix*vec4(newPosition,1.)*cubicOut(uAlpha);
 }
