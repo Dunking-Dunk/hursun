@@ -129,11 +129,14 @@ export default class Home extends Page {
             'UI/UX',
             'GLSL',
         ]
+        console.log(window.innerHeight)
         this.TagOptions = {
-            radius: DetectionManager.isPhone() ? 150 : 300,
+            radius: DetectionManager.isPhone() ? 150: window.innerHeight > 800 ? 300: 180,
             maxSpeed: 'normal',
             itemClass: 'home__skills__skill',
         };
+
+        console.log(this.TagOptions.radius)
 
         this.tag = TagCloud(this.elements.skillsContainer, texts, this.TagOptions);
     }
