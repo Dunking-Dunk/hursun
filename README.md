@@ -196,21 +196,6 @@ npm test
 
 ---
 
-## 📸 Screenshots & Demo
-
-<div align="center">
-
-### 🎨 **Live Portfolio Preview**
-
-*Screenshots and demo GIFs would go here*
-
-| Desktop View | Mobile View | 3D Animation |
-|:------------:|:-----------:|:------------:|
-| ![Desktop](https://via.placeholder.com/300x200?text=Desktop) | ![Mobile](https://via.placeholder.com/200x300?text=Mobile) | ![3D](https://via.placeholder.com/300x200?text=3D+Demo) |
-
-</div>
-
----
 
 ## 🏗️ Project Structure
 
