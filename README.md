@@ -1,91 +1,114 @@
-<p align="center">
-  <!-- <img src="URL_TO_YOUR_LOGO" alt="Project Logo" width="120"> -->
-</p>
+# Hursun - A Full-Stack E-Commerce Website
 
-<h1 align="center">
-  [Project Name]
-</h1>
+Hursun is a feature-rich e-commerce platform built with modern web technologies. It provides a seamless shopping experience for users, from browsing products to a secure checkout process. This project showcases a full-stack application with a focus on performance, scalability, and user experience.
 
-<p align="center">
-  [A brief, one-sentence description of what your project does.]
-</p>
+## Features
 
-<p align="center">
-  <img src="https://img.shields.io/github/license/[your-username]/[project-name]" alt="License">
-  <img src="https://img.shields.io/github/last-commit/[your-username]/[project-name]" alt="Last Commit">
-  <img src="https://img.shields.io/github/stars/[your-username]/[project-name]?style=social" alt="GitHub Stars">
-  <img src="https://img.shields.io/github/forks/[your-username]/[project-name]?style=social" alt="GitHub Forks">
-</p>
+-   **Product Catalog:** Browse a wide range of products with detailed descriptions and images.
+-   **Shopping Cart:** Add and manage products in a persistent shopping cart.
+-   **User Authentication:** Secure user registration and login functionality.
+-   **Order Management:** View and track your order history.
+-   **Admin Dashboard:** A dedicated dashboard for administrators to manage products, orders, and users.
+-   **Responsive Design:** A mobile-first design that looks great on any device.
 
----
+## Tech Stack
 
-### 📚 TABLE OF CONTENTS
+This project is built with the following technologies:
 
-- [⭐ About The Project](#-about-the-project)
-- [✨ Key Features](#-key-features)
-- [💻 Built With](#-built-with)
-- [🚀 Getting Started](#-getting-started)
-  - [📦 Prerequisites](#-prerequisites)
-  - [🔧 Installation](#-installation)
-- [🎮 Usage](#-usage)
-- [🗺️ Roadmap](#-roadmap)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
-- [📧 Contact](#-contact)
+-   **Frontend:**
+    -   [Next.js](https://nextjs.org/) - A React framework for building server-side rendered and static web applications.
+    -   [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+    -   [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
+    -   [Shadcn/ui](https://ui.shadcn.com/) - Re-usable components built using Radix UI and Tailwind CSS.
+-   **Backend:**
+    -   [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction) - For creating the backend API.
+    -   [Prisma](https://www.prisma.io/) - A next-generation ORM for Node.js and TypeScript.
+-   **Database:**
+    -   [MySQL](https://www.mysql.com/) - A popular open-source relational database.
+-   **Authentication:**
+    -   [NextAuth.js](https://next-auth.js.org/) - An authentication library for Next.js applications.
 
----
+## Getting Started
 
-## ⭐ About The Project
+To get a local copy up and running, follow these simple steps.
 
-[Provide a more detailed description of your project. What problem does it solve? Why does it exist? What makes it special or unique? Include any visuals or screenshots.]
+### Prerequisites
 
-<!--
-<p align="center">
-  <img src="URL_TO_YOUR_SCREENSHOT" alt="Screenshot" width="700">
-</p>
--->
+Make sure you have the following installed on your machine:
 
----
+-   [Node.js](httpss://nodejs.org/en/) (v18 or later)
+-   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+-   [Git](https://git-scm.com/)
 
-## ✨ Key Features
+### Installation
 
-- ✅ Feature A — [Short explanation]
-- ✅ Feature B — [Short explanation]
-- ✅ Feature C — [Short explanation]
+1.  **Clone the repository:**
 
----
+    ```bash
+    git clone [https://github.com/Dunking-Dunk/hursun.git](https://github.com/Dunking-Dunk/hursun.git)
+    ```
 
-## 💻 Built With
+2.  **Navigate to the project directory:**
 
-This project was built using the following tools:
+    ```bash
+    cd hursun
+    ```
 
-- ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
-- ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node-dot-js&logoColor=white)
-- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
-- ![SCSS](https://img.shields.io/badge/SCSS-cc6699?style=flat&logo=sass&logoColor=white)
+3.  **Install dependencies:**
 
----
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-## 🚀 Getting Started
+### Environment Variables
 
-Follow these instructions to set up the project locally.
+This project uses environment variables to store sensitive information. Create a `.env.local` file in the root of the project and add the following variables:
 
-### 📦 Prerequisites
 
-Before you begin, ensure you have the following tools installed:
+Database
+DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE"
 
-- **Node.js** – [Install Node.js](https://nodejs.org/en/download/)
-- **npm** – Comes with Node.js
-- **Git** – [Install Git](https://git-scm.com/downloads)
+NextAuth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET= # Generate a secret using: openssl rand -base64 32
 
-### 🔧 Installation
+Google OAuth
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 
-```bash
-# Clone the repo
-git clone https://github.com/[your-username]/[project-name].git
 
-# Navigate into the project folder
-cd [project-name]
+### Running the Application
 
-# Install dependencies
-npm install
+1.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+2.  **Open your browser** and navigate to [http://localhost:3000](http://localhost:3000) to see the application in action.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Dunking-Dunk - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
+
+Project Link: [https://github.com/Dunking-Dunk/hursun](https://github.com/Dunking-Dunk/hursun)
